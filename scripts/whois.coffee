@@ -15,12 +15,12 @@
 
 module.exports = (robot) ->
   robot.respond /whois (.*)/i, (msg) ->
-    gemname = escape(msg.match[1])
-    msg.http("https://warm-lake-9867.herokuapp.com/?name=#{gemname}")
+    name = escape(msg.match[1]).toLowerCase()
+    msg.http("https://warm-lake-9867.herokuapp.com/?name=#{name}")
       .get() (err, res, body) ->
         try
           json = JSON.parse(body)
-          msg.send " image_url: #{json.image_url}\n
+          msg.send "#{json.image_url}\n
           role: #{json.role}\n
           team: #{json.team}\n
           location: #{json.location}\n
