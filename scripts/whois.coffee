@@ -15,5 +15,5 @@
 module.exports = (robot) ->
   robot.respond /whois (.*)/i, (msg) ->
     person = (msg.match[1])
-    person = person.replace ' ', '-'
+    person = person.replace(' ', '-').toLowerCase()
     msg.reply("https://peoplefinder.service.gov.uk/people/#{person}")
