@@ -7,7 +7,7 @@
 module.exports = (robot) ->
 
   define = (query, msg, method) ->
-    msg.http("#{process.env.HUBOT_BBA_HOST}/define/#{query}").headers("Accept": "application/json").get() (err, res, body) ->
+    msg.http("#{process.env.HUBOT_BBA_HOST}define/#{query}").headers("Accept": "application/json").get() (err, res, body) ->
       return msg.send "BBA says: #{err}" if err
       if res.statusCode != 500
         acronym = JSON.parse body
