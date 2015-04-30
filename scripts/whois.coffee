@@ -16,7 +16,7 @@
 module.exports = (robot) ->
   robot.respond /whois (.*)/i, (msg) ->
     name = escape(msg.match[1]).toLowerCase()
-    msg.http("https://warm-lake-9867.herokuapp.com/?name=#{name}")
+    msg.http("#{process.env.HUBOT_PEOPLEFINDER_HOST}?name=#{name}")
       .get() (err, res, body) ->
         try
           json = JSON.parse(body)
