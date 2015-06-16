@@ -32,7 +32,7 @@ module.exports = (robot) ->
     define query, msg, true
 
 
-  robot.hear /(W|w)hat(\'s)? (is )?([A-Z0-9]{2,})/, (msg) ->
+  robot.hear /(W|w)hat((\'| i)?s) ([A-Z0-9]{2,})/, (msg) ->
     query = msg.match[4]
 
     define query, msg, true
